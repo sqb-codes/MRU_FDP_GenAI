@@ -1,0 +1,125 @@
+GAN - Generative Adversarial Network
+
+Generator
+Discriminator
+
+1. TensorFlow / PyTorch - Framework for Deep Learning
+2. Google Colab - Coding Platform
+=====================================================
+
+Neural Machine Translation with Transfomer
+
+Transformers are deep neural networks that replaces CNN and RNN with self-attention 
+
+Self-attention layer allows transformers to easily transmit information across the input sequence
+
+Self part of self-attention refers to sequence attending to itself rather than to some other context.
+Self-attention is one of the main building block of transformers...
+It uses dictionary lookup terminology like "query", "key", "value"
+
+https://platform.openai.com/
+
+
+Transformers
+- just another neural network architecture that follows seq2seq model
+
+
+Seq2Seq model
+- neural network architecture designed specifically to handle task that involves transforming one seq to another
+
+Working of Seq2Seq
+- Encoder and Decoder structure
+
+Encoder
+ - takes the input seq and processes it to capture its meaning and context
+ - it outputs the information into a hidden representation, like a vector
+
+
+Decoder
+ - this part uses hidden representation from encoder to generate output sequence. It predicts one element of the output seq at a time. It uses previous prediction and the encoder's hidden representation.
+
+
+
+Limitation of Seq2Seq
+- Shortcomings of RNNs - it often relied on RNN for both encoder and decoder. RNN can struggle with long sequences. This could lead to issues in capturing context in longer sentences
+- Complex Structure
+
+
+Attention Mechanism
+- Major advancement in sqe2seq model
+- attention allows decoder to focus on specific parts of input sequence that are relevant to generating the current element in output sequence
+
+Self-attention mechanism
+- it helps models to understand relationship b/w different parts of a sequence of data... to understand the meaning of a word, we consider the words around it...Self-attention works in similar way for models.. By analyzing the connections b/w different elements in a sequence
+
+1. Transforming the input 
+   - model converts the data sequence into 3 vectors - query, key and value
+2. Calculate attention score
+   - model calculates a score for each element in the sequence. This score reflects how relevant each element is to the current focus
+   - attention score for a pair of tokens is computed as dot product of their query and key vector
+3. Weighted Sum
+   - Using the attention score, the model creates a weighted sum of the value vectors...
+4. Output Generation
+   - finally model combines the weighted sum with original input to generate the output
+
+
+Context Embedding
+- representation of words or tokens in a context-aware manner...capturing the meaning of a word based on its surrounding words in a sentence
+
+1. Static Word Embedding 
+   - Word2Vec, GloVe
+   - example - the word bank - river bank or financial bank.. so here bank will have same representation..
+
+2. Dynamic Word Embedding
+   - ELMo - Embedding from Language Model
+   - BERT - Bidirectional Encoder Representation from Transformers
+   - GPT - Generative Pre-trained Transformers
+
+
+How self-attention works with Transformers...
+1. Input Representation
+2. Creating Query, Key and Value
+3. Attention score
+4. Scaling of score
+5. Apply softmax
+6. Weighted sum
+7. Multi-head attention
+8. Integrating into transformers
+
+
+Multi-Head Attention
+- extension of self-attention mechanism
+- it focuses on different parts of input sequence simultaneously.. enhancing its ability to capture various aspects of relationships b/w tokens
+
+- instead of performing single attention operation, multi-head attention performs several attention operations in parallel.
+- each head learns different attention patterns, enabling model to capture various types of dependencies and relationships in data
+
+Steps in Multi-head Attention
+1. Linear Projection
+  - for each head i, the input embeddings X are linear projected into Query, Key and Value vector...
+  - these projections are performed independently for each head
+
+2. Scaled Dot-Product Attention
+3. Concatenation
+4. Final Linear Projection
+
+
+Positional Encoding
+- transformers process entire input sequence simultaneously
+
+- pos - position of the token in sequence
+- i - is the dimension index
+- dmodel - dimension of the model (size of embedding vector)
+
+
+Frequency Variation
+- the argument of sine and cosine functions involves pos/10000 which ensures that the positional encodings cover a range of frequencies
+
+Why Positional Encoding ?
+- Order Awareness - they provide the transformer with a sense of order in the input sequence...
+- Handling Long sequences - the use of multiple frequencies ensures that the model can learn dependencies at various scales, from short-term to long-term dependencies
+
+
+
+
+
